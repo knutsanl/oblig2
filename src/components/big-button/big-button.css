@@ -1,0 +1,4 @@
+.BigButton {
+    border: 1px solid white;
+    background-color: var(--color-bg-secondary);
+}

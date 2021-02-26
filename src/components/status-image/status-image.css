@@ -1,0 +1,4 @@
+.StatusImage {
+    border: 1px solid white;
+    background-color: var(--color-busy);
+}
