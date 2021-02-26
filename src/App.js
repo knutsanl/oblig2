@@ -16,7 +16,11 @@ class App extends Component {
         <BigSwitch />
         <StatusButton />
         <StatusImage />
-        <UserPreview />
+        <UserPreview user={{
+            name:"",
+            status: "available",
+            place: "home-office"
+        }} />
         <UserList />
       </div>
     );
