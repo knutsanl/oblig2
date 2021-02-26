@@ -8,7 +8,6 @@ function UserPreview({ user }) {
     return(
         <div className="UserPreview">
             <div className="icon">
-                {/* Missing office.svg and home.svg */}
                 {place === 'on-campus' ? <img className="svgIcon" alt="" src={campus}/> : <img className="svgIcon" alt="" src={home} /> }
             </div>
             <div className="MainRectangle">
