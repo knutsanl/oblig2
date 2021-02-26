@@ -1,3 +1,39 @@
+.UserPreview,
+.MainRectangle,
+.OuterCircle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .UserPreview {
-    border: 1px solid white;
+    height: 76px;
+    width: 352px;
+    background-color: #3aafb9;
+    position: relative;
+}
+
+.MainRectangle {
+    height: 100%;
+    width: 312px;
+    padding-right: 40px;
+}
+
+.OuterCircle,
+.InnerCircle {
+    border-radius: 50%;
+}
+
+.OuterCircle {
+    height: 76px;
+    width: 80px;
+    background-color: #97c8eb;
+    position: absolute;
+    right: -40px;
+    top: 0;
+}
+
+.InnerCircle {
+    height: 60px;
+    width: 63px;
 }

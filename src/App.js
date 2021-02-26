@@ -17,9 +17,9 @@ class App extends Component {
         <StatusButton />
         <StatusImage />
         <UserPreview user={{
-            name:"",
-            status: "available",
-            place: "home-office"
+            name:"Jostein",
+            available: true,
+            place: "on-campus"
         }} />
         <UserList />
       </div>
