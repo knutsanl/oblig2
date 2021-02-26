@@ -1,6 +1,7 @@
 .UserPreview,
 .MainRectangle,
-.OuterCircle {
+.OuterCircle,
+.icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,12 +37,6 @@
 .InnerCircle {
     height: 60px;
     width: 63px;
-}
-
-.icon {
-    display: flex;
-    align-items: center;
-    justify-items: center;
 }
 
 .svgIcon {
