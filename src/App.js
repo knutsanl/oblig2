@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <BigButton />
+        <BigButton text={"On-campus"} enabled={false}/>
         <BigSwitch />
         <StatusButton />
         <StatusImage />
