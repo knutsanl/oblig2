@@ -1,3 +1,6 @@
 .UserList {
-    border: 1px solid white;
+	border: 1px solid white;
+	width: 422px;
+	background-color: #e5e5e5;
+	margin: 2em auto;
 }
