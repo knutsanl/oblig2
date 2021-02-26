@@ -19,7 +19,7 @@ class App extends Component {
         <UserPreview user={{
             name:"Jostein",
             available: true,
-            place: "on-campus"
+            place: "home"
         }} />
         <UserList />
       </div>

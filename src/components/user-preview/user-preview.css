@@ -37,3 +37,14 @@
     height: 60px;
     width: 63px;
 }
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.svgIcon {
+    height: 73px;
+    filter: brightness(100);
+}

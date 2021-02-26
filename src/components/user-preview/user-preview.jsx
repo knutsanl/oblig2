@@ -1,4 +1,6 @@
 import './user-preview.css';
+import home from '../../assets/home-filled.svg';
+import campus from '../../assets/industry-11.svg';
 
 function UserPreview({ user }) {
     const place = user.place;
@@ -7,7 +9,7 @@ function UserPreview({ user }) {
         <div className="UserPreview">
             <div className="icon">
                 {/* Missing office.svg and home.svg */}
-                {place === 'on-campus' ? 'office.svg' : 'home.svg'}
+                {place === 'on-campus' ? <img className="svgIcon" alt="" src={campus}/> : <img className="svgIcon" alt="" src={home} /> }
             </div>
             <div className="MainRectangle">
                 { user.name.toUpperCase() }
