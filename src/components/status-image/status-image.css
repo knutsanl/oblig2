@@ -1,4 +1,20 @@
 .StatusImage {
     border: 1px solid white;
-    background-color: var(--color-busy);
+    height: 423px;
+    width: 414px;
+}
+
+img {
+    position: absolute;
+    max-height: 423px;
+    max-width: 414px;
+    left: 0;
+}
+
+#person {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-height: 368px;
+    max-width: 292px;
 }
