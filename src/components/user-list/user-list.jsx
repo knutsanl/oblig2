@@ -12,6 +12,6 @@ function UserList({ users }) {
 }
 
 UserList.defaultProps = {
-	users: [{ user: '', status: null, place: '' }],
+	users: [{ user: null, status: null, place: null }],
 };
 export default UserList;
