@@ -4,12 +4,15 @@ import home from '../../assets/Home.svg';
 import campus from '../../assets/Wireframe.svg';
 
 function StatusImage(props) {
+    const {available, onCampus} = props;
+    const isBusy = !available ? 'busy' : undefined;
+    const tooltip = `${available ? 'available' : 'busy'}, ${onCampus ? 'campus' : 'home'}`;
+    const place = onCampus ? campus : home;
+
     return(
-        <div className="StatusImage" id={props.available === false ? 'opacity40' : undefined}>
-            StatusImage
-            {!props.onCampus && <img src={home} alt="Home" />}
-            {props.onCampus && <img src={campus} alt="Campus" />}
-            <img src={standing} alt="Standing" id="person" />
+        <div className={'StatusImage ' + isBusy} title={tooltip}>
+            <img src={place} alt="Campus" />
+            <img src={standing} alt="Standing" className="person" />
         </div>
     );
 }

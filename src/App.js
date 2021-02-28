@@ -15,7 +15,7 @@ class App extends Component {
         <BigButton />
         <BigSwitch />
         <StatusButton available={true} />
-        <StatusImage available={true} onCampus={false} />
+        <StatusImage available={true} onCampus={true} />
         <UserPreview />
         <UserList />
       </div>
