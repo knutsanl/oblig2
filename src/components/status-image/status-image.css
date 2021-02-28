@@ -26,6 +26,6 @@
     object-fit: contain;
 }
 
-.busy {
+.StatusImage .busy {
     opacity: 40%;
 }
