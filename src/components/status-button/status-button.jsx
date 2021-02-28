@@ -1,13 +1,13 @@
 import './status-button.css';
 
 function StatusButton(props) {
+    const isBusy = props.available ? '' : 'busy';
+
     return(
         <div className="StatusButton">
-            StatusButton
-            <section>
-                <p>{props.available === true ? 'Available' : 'Busy'}</p>
-                <span className="outerDot"><span className="innerDot" style={{backgroundColor: props.available === true ? "var(--color-available)" : "var(--color-busy)"}}></span></span>
-            </section>
+            <div className="textContainer"></div>
+            <div className={['dot', isBusy].join(' ')}></div>
+            <p className="text">{props.available === true ? 'Available' : 'Busy'}</p>
         </div>
     );
 }
