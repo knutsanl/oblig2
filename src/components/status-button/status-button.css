@@ -1,4 +1,35 @@
 .StatusButton {
     border: 1px solid white;
-    background-color: var(--color-available);
+
+}
+
+.StatusButton section {
+    margin: 0 auto;
+    background-color: var(--color-bg-secondary);
+    height: 76px;
+    width: 312px;
+}
+
+.StatusButton section>p {
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.StatusButton .outerDot {
+    height: 76px;
+    width: 80px;
+    background-color: #97C8EB;
+    border-radius: 50%;
+    display: inline-block;
+    transform: translate(195%, -37%);
+}
+
+.StatusButton .innerDot {
+    height: 60px;
+    width: 63px;
+    border-radius: 50%;
+    display: inline-block;
+    transform: translate(1%, 15%);
 }
