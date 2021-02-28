@@ -5,7 +5,7 @@ import campus from '../../assets/Wireframe.svg';
 
 function StatusImage(props) {
     const {available, onCampus} = props;
-    const isBusy = !available ? 'busy' : undefined;
+    const isBusy = !available ? 'busy' : '';
     const tooltip = `${available ? 'available' : 'busy'}, ${onCampus ? 'campus' : 'home'}`;
     const place = onCampus ? campus : home;
 
