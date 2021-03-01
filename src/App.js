@@ -46,7 +46,7 @@ class App extends Component {
     const onCampus = this.state.myUser.place === 'on-campus';
     return (
       <div className="App">
-        <BigButton />
+        <BigButton text={"On-campus"} enabled={false}/>
         <BigSwitch />
         <StatusButton available={available} />
         <StatusImage available={available} onCampus={onCampus} />
