@@ -10,28 +10,30 @@ import UserPreview from './components/user-preview/user-preview';
 
 //only for testing purposes
 const busyHome = {
-  name: 'Jane',
+  name: 'JaneBuHo',
   status: 'busy',
   place: 'home-office'
 }
 
 const busyCampus = {
-  name: 'Jane',
+  name: 'JaneBuCa',
   status: 'busy',
   place: 'on-campus'
 }
 
 const availableHome = {
-  name: 'Jane',
+  name: 'JaneAvHo',
   status: 'available',
   place: 'home-office'
 }
 
 const availableCampus = {
-  name: 'Jane',
+  name: 'JaneAvCa',
   status: 'available',
   place: 'on-campus'
 }
+
+const users = [busyHome, busyCampus, availableHome, availableCampus];
 
 class App extends Component {
   constructor(props) {
@@ -46,12 +48,23 @@ class App extends Component {
     const onCampus = this.state.myUser.place === 'on-campus';
     return (
       <div className="App">
+        <p>This is the BigButton</p>
         <BigButton text={this.state.myUser.place} enabled={available}/>
+        
+        <p>This is the BigSwitch</p>
         <BigSwitch />
+
+        <p>This is the StatusButton</p>
         <StatusButton available={available} />
+
+        <p>This is the StatusImage</p>
         <StatusImage available={available} onCampus={onCampus} />
-        <UserPreview name={this.state.myUser.name} place={this.state.myUser.place} available={this.state.myUser.status}/>
-        <UserList users={[this.state.myUser]}/>
+
+        <p>This is the UserPreview</p>
+        <UserPreview user={this.state.myUser}/>
+
+        <p>This is the UserList</p>
+        <UserList users={users}/>
       </div>
     );
   }

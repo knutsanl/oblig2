@@ -4,18 +4,16 @@ import campus from '../../assets/industry-11.svg';
 
 function UserPreview({ user }) {
     const place = user.place;
-    const available = user.available;
-    return(
+    const available = user.status === 'available';
+    const isBusy = available ? '' : 'busy';
+    const img = place === 'on-campus' ? campus : home;
+
+    return (
         <div className="UserPreview">
-            <div className="icon">
-                {place === 'on-campus' ? <img className="svgIcon" alt="" src={campus}/> : <img className="svgIcon" alt="" src={home} /> }
-            </div>
-            <div className="MainRectangle">
-                { user.name.toUpperCase() }
-            </div>
-            <div className="OuterCircle">
-                <div className="InnerCircle" style={{backgroundColor: available ? 'green' : 'red'}}></div>
-            </div>
+            <div className="textContainer"></div>
+            <img className="svgIcon" alt="" src={img} />
+            <p className="text">{user.name}</p>
+            <div className={['dot', isBusy].join(' ')}></div>
         </div>
     );
 }
