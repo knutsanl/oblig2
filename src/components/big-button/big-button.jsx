@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class BigButton extends Component {
     
     handleOnClick = () => {
-        this.props.onClick();
+        this.props.onClick(!this.props.enabled);
     };
 
     render() {
