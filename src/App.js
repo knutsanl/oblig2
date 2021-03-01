@@ -65,7 +65,7 @@ class App extends Component {
     }, 5000);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.interval);
   }
 
@@ -73,7 +73,8 @@ class App extends Component {
     return (
       <div className="App">
         <p>This is the home component</p>
-        <Home user={this.state.myUser} onChangePlace={this.updateUserPlace}/>
+        <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} />
+
         <p>This is the UserList</p>
         <UserList users={users} />
       </div>
@@ -98,23 +99,23 @@ class App extends Component {
     });
   }
 
-  // updateUserStatus = (available) => {
-  //   const place = onCampus ? 'on-campus' : 'home-office';
-  //   this.setState((state) => {
+  updateUserStatus = (available) => {
+    const status = available ? 'available' : 'busy';
+    this.setState((state) => {
 
-  //     let newUserList = [...this.state.users];
-  //     //myUser is always in pos[0] in the demo. However, in real app this will not be true.
-  //     newUserList[0].place = place;
+      let newUserList = [...this.state.users];
+      //myUser is always in pos[0] in the demo. However, in real app this will not be true.
+      newUserList[0].status = status;
 
-  //     return {
-  //       myUser: {
-  //         ...state.myUser,
-  //         place
-  //       },
-  //       users: newUserList
-  //     }
-  //   });
-  // }
+      return {
+        myUser: {
+          ...state.myUser,
+          status
+        },
+        users: newUserList
+      }
+    });
+  }
 }
 
 export default App;
