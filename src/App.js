@@ -38,7 +38,7 @@ const users = [busyHome, busyCampus, availableHome, availableCampus];
 class App extends Component {
   constructor(props) {
     super(props);
-    // posible values "available/busy and on-campus/"
+    // posible values "available/busy and on-campus/home-office"
     this.state = {
       myUser: busyHome
     }
@@ -46,13 +46,14 @@ class App extends Component {
   render() {
     const available = this.state.myUser.status === 'available';
     const onCampus = this.state.myUser.place === 'on-campus';
+    const config = {textWhenChecked: 'on-campus', textWhenUnchecked:'Home office'};
     return (
       <div className="App">
         <p>This is the BigButton</p>
         <BigButton text={this.state.myUser.place} enabled={available}/>
         
         <p>This is the BigSwitch</p>
-        <BigSwitch />
+        <BigSwitch config={config} checked={onCampus}/>
 
         <p>This is the StatusButton</p>
         <StatusButton available={available} />
