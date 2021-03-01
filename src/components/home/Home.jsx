@@ -14,7 +14,7 @@ class Home extends Component {
 
         return (
             <div className="Home">
-                <StatusButton available={available}/>
+                <StatusButton available={available} onChange={this.updateUserStatus}/>
                 <StatusImage available={available} onCampus={onCampus}/>
                 <BigSwitch config={config} checked={onCampus} onChange={this.updateUserPlace} />
             </div>
@@ -25,13 +25,20 @@ class Home extends Component {
         console.log('updateUserPlace: ', onCampus );
         this.props.onChangePlace(onCampus);
     }
+
+    updateUserStatus = (available) => {
+        console.log('updateUserStatus: ', available );
+        this.props.onChangeStatus(available);
+    }
 }
 
 Home.defaultProps = {
-    name: 'Joe Doe',
+    name: 'John Doe',
     place: 'on-campus',
     status: 'available',
-    onChangePlace: () => { console.log('<Home> onChangePlace') }
+    onChangePlace: () => { console.log('<Home> onChangePlace') },
+    onChangeStatus: () => { console.log('<Home> onChangeStatus') }
+
 };
 
 export default Home;

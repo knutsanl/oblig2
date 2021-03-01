@@ -73,7 +73,7 @@ class App extends Component {
     return (
       <div className="App">
         <p>This is the home component</p>
-        <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} />
+        <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
 
         <p>This is the UserList</p>
         <UserList users={users} />
