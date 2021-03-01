@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import BigButton from '../big-button/big-button';
 
 class BigSwitch extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { checked: this.props.checked };
-    }
 
     handleOnClickFirstButton = (newValue) => {
         this.updatEnabled(newValue);
@@ -17,16 +13,16 @@ class BigSwitch extends Component {
     }
 
     updatEnabled(newValue){
-        this.setState({checked: newValue});
+        this.props.onChange(newValue);
     }
 
     render() {
-        const { config: { textWhenChecked, textWhenUnchecked } } = this.props;
+        const { checked, config: { textWhenChecked, textWhenUnchecked } } = this.props;
 
         return (
             <div className="BigSwitch">
-                <BigButton text={textWhenChecked} enabled={this.state.checked} onClick={this.handleOnClickFirstButton}/>
-                <BigButton text={textWhenUnchecked} enabled={!this.state.checked} onClick={this.handleOnClickSecondButton}/>
+                <BigButton text={textWhenChecked} enabled={checked} onClick={this.handleOnClickFirstButton}/>
+                <BigButton text={textWhenUnchecked} enabled={!checked} onClick={this.handleOnClickSecondButton}/>
             </div>
         );
     }
@@ -34,7 +30,8 @@ class BigSwitch extends Component {
 
 BigSwitch.defaultProps = {
     config: { textWhenChecked: 'on-campus', textWhenUnchecked: 'Home office' },
-    checked: true
+    checked: true,
+    onChange: ()=>{console.log('<BigSwitch> onChange')}
 };
 
 export default BigSwitch;

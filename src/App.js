@@ -81,7 +81,7 @@ class App extends Component {
         <BigButton text={this.state.myUser.place} />
 
         <p>This is the BigSwitch</p>
-        <BigSwitch config={config} checked={onCampus} />
+        <BigSwitch config={config} checked={onCampus} onChange={this.updateUserPlace} />
 
         <p>This is the StatusButton</p>
         <StatusButton available={available} />
@@ -96,6 +96,24 @@ class App extends Component {
         <UserList users={users} />
       </div>
     );
+  }
+
+  updateUserPlace = (onCampus) => {
+    const place = onCampus ? 'on-campus' : 'home-office';
+    this.setState((state) => {
+
+      let newUserList = [...this.state.users];
+      //myUser is always in pos[0] in the demo. However, in real app this will not be true.
+      newUserList[0].place = place;
+
+      return {
+        myUser: {
+          ...state.myUser,
+          place
+        },
+        users: newUserList
+      }
+    });
   }
 }
 
