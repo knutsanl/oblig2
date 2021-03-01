@@ -77,8 +77,8 @@ class App extends Component {
     const config = { textWhenChecked: 'on-campus', textWhenUnchecked: 'Home office' };
     return (
       <div className="App">
-        <p>This is the BigButton</p>
-        <BigButton text={this.state.myUser.place} enabled={available} />
+        <p>This is the BigButton (always enabled if not part of a switch</p>
+        <BigButton text={this.state.myUser.place} />
 
         <p>This is the BigSwitch</p>
         <BigSwitch config={config} checked={onCampus} />
