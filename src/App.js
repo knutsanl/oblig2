@@ -71,12 +71,17 @@ class App extends Component {
     }, 5000);
   }
 
+  componentWillUnmount(){
+    clearInterval(this.interval);
+  }
+
   render() {
     const available = this.state.myUser.status === 'available';
     const onCampus = this.state.myUser.place === 'on-campus';
     const config = { textWhenChecked: 'on-campus', textWhenUnchecked: 'Home office' };
     return (
       <div className="App">
+
         <p>This is the BigButton (always enabled if not part of a switch</p>
         <BigButton text={this.state.myUser.place} />
 
@@ -84,7 +89,7 @@ class App extends Component {
         <BigSwitch config={config} checked={onCampus} onChange={this.updateUserPlace} />
 
         <p>This is the StatusButton</p>
-        <StatusButton available={available} />
+        <StatusButton available={available} onChange={this.updateUserStatus}/>
 
         <p>This is the StatusImage</p>
         <StatusImage available={available} onCampus={onCampus} />
@@ -110,6 +115,24 @@ class App extends Component {
         myUser: {
           ...state.myUser,
           place
+        },
+        users: newUserList
+      }
+    });
+  }
+
+  updateUserStatus = (available) => {
+    const status = available ? 'available' : 'busy';
+    this.setState((state) => {
+
+      let newUserList = [...this.state.users];
+      //myUser is always in pos[0] in the demo. However, in real app this will not be true.
+      newUserList[0].status = status;
+
+      return {
+        myUser: {
+          ...state.myUser,
+          status
         },
         users: newUserList
       }
