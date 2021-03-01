@@ -2,21 +2,13 @@ import './big-button.css';
 import React, { Component } from 'react';
 
 class BigButton extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { enabled: this.props.enabled };
-    }
-
+    
     handleOnClick = () => {
-        this.setState(state=>{
-            return {
-                enabled: !state.enabled
-            }
-        });
+        this.props.onClick();
     };
 
     render() {
-        const classes = `BigButton ${this.state.enabled ? '' : 'disabled'}`;
+        const classes = `BigButton ${this.props.enabled ? '' : 'disabled'}`;
         return (
             <div className={classes} onClick={this.handleOnClick}>
                 <p>{this.props.text}</p>
@@ -27,7 +19,8 @@ class BigButton extends Component {
 
 BigButton.defaultProps = {
     enabled: true,
-    text: 'Button'
+    text: 'Button',
+    onClick: ()=>{console.log('click!')}
 };
 
 export default BigButton;
