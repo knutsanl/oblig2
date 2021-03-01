@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-
-import BigButton from './components/big-button/big-button';
-import BigSwitch from './components/big-switch/big-switch';
-import StatusButton from './components/status-button/status-button';
-import StatusImage from './components/status-image/status-image';
+import Home from './components/home/Home';
 import UserList from './components/user-list/user-list';
-import UserPreview from './components/user-preview/user-preview';
 
 //only for testing purposes
 const busyHome = {
@@ -67,31 +62,18 @@ class App extends Component {
           users: newUserList
         }
       });
-
     }, 5000);
   }
 
+  componentWillUnmount(){
+    clearInterval(this.interval);
+  }
+
   render() {
-    const available = this.state.myUser.status === 'available';
-    const onCampus = this.state.myUser.place === 'on-campus';
-    const config = { textWhenChecked: 'on-campus', textWhenUnchecked: 'Home office' };
     return (
       <div className="App">
-        <p>This is the BigButton (always enabled if not part of a switch</p>
-        <BigButton text={this.state.myUser.place} />
-
-        <p>This is the BigSwitch</p>
-        <BigSwitch config={config} checked={onCampus} onChange={this.updateUserPlace} />
-
-        <p>This is the StatusButton</p>
-        <StatusButton available={available} />
-
-        <p>This is the StatusImage</p>
-        <StatusImage available={available} onCampus={onCampus} />
-
-        <p>This is the UserPreview</p>
-        <UserPreview user={this.state.myUser} />
-
+        <p>This is the home component</p>
+        <Home user={this.state.myUser} onChangePlace={this.updateUserPlace}/>
         <p>This is the UserList</p>
         <UserList users={users} />
       </div>
@@ -115,6 +97,24 @@ class App extends Component {
       }
     });
   }
+
+  // updateUserStatus = (available) => {
+  //   const place = onCampus ? 'on-campus' : 'home-office';
+  //   this.setState((state) => {
+
+  //     let newUserList = [...this.state.users];
+  //     //myUser is always in pos[0] in the demo. However, in real app this will not be true.
+  //     newUserList[0].place = place;
+
+  //     return {
+  //       myUser: {
+  //         ...state.myUser,
+  //         place
+  //       },
+  //       users: newUserList
+  //     }
+  //   });
+  // }
 }
 
 export default App;
