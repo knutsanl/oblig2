@@ -12,6 +12,6 @@ function UserList({ users }) {
 }
 
 UserList.defaultProps = {
-	users: '',
+	users: [],
 };
 export default UserList;
