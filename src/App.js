@@ -50,8 +50,8 @@ class App extends Component {
         <BigSwitch />
         <StatusButton available={available} />
         <StatusImage available={available} onCampus={onCampus} />
-        <UserPreview />
-        <UserList />
+        <UserPreview name={this.state.myUser.name} place={this.state.myUser.place} status={this.state.myUser.status}/>
+        <UserList users={[this.state.myUser]}/>
       </div>
     );
   }
