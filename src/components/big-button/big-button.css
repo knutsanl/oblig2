@@ -1,17 +1,15 @@
 .BigButton {
     height: 105px;
-    max-width: 312px;
+    width: 312px;
+    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.enabled {
     background-color: var(--color-bg-secondary);
     color: white;
 }
 
-.disabled {
+.BigButton.disabled {
     background-color: #3AAFB940;
     color: rgb(129, 129, 129);
 }
