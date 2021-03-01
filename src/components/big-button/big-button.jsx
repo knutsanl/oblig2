@@ -9,4 +9,9 @@ function BigButton(props) {
     );
 }
 
+BigButton.defaultProps = {
+    enabled: true,
+    text: 'Button'
+};
+
 export default BigButton;
