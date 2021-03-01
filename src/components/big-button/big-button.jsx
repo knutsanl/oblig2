@@ -4,7 +4,7 @@ function BigButton(props) {
     const classes = `BigButton ${props.enabled ? '' : 'disabled'}`;
     return (
         <div className={classes}>
-            <p>{props.text.toUpperCase()}</p>
+            <p>{props.text}</p>
         </div>
     );
 }

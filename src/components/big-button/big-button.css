@@ -9,6 +9,10 @@
     color: white;
 }
 
+.BigButton > p {
+    text-transform: uppercase;
+}
+
 .BigButton.disabled {
     background-color: #3AAFB940;
     color: rgb(129, 129, 129);
