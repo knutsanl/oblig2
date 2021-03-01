@@ -1,8 +1,11 @@
 import './big-button.css';
 
 function BigButton(props) {
-    return(
-        <div className="BigButton">BigButton</div>
+    const classes = `BigButton ${props.enabled ? '' : 'disabled'}`;
+    return (
+        <div className={classes}>
+            <p>{props.text.toUpperCase()}</p>
+        </div>
     );
 }
 
