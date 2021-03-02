@@ -35,7 +35,7 @@ class App extends Component {
     super(props);
     // posible values "available/busy and on-campus/home-office"
     this.state = {
-      myUser: {...users[0]},
+      myUser: { ...users[0] },
       users: users
     }
   }
@@ -43,11 +43,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>This is the home component</p>
-        <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
-
-        <p>This is the UserList</p>
-        <UserList users={this.state.users} />
+        <div>
+          <p>This is the home component</p>
+          <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
+        </div>
+        <div>
+          <p>This is the UserList</p>
+          <UserList users={this.state.users} />
+        </div>
       </div>
     );
   }
