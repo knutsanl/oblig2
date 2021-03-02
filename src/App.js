@@ -93,7 +93,7 @@ class App extends Component {
         <UserPreview user={this.state.myUser} />
 
         <p>This is the UserList</p>
-        <UserList users={users} />
+        <UserList users={this.state.users} />
       </div>
     );
   }
