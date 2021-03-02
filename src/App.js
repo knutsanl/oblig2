@@ -35,7 +35,7 @@ class App extends Component {
     super(props);
     // posible values "available/busy and on-campus/home-office"
     this.state = {
-      myUser: users[0],
+      myUser: {...users[0]},
       users: users
     }
   }
@@ -47,7 +47,7 @@ class App extends Component {
         <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
 
         <p>This is the UserList</p>
-        <UserList users={users} />
+        <UserList users={this.state.users} />
       </div>
     );
   }
