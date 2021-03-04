@@ -13,6 +13,9 @@ import Home from './components/home/Home';
 import UserList from './components/user-list/user-list';
 import NotFound from './components/NotFound';
 import About from './components/about/About';
+import PrivateRoute from './routes/PrivateRoute';
+import Login from './components/login/Login';
+
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +44,9 @@ class App extends Component {
                   <li>
                     <Link to="/dashboard">Dashboard</Link>
                   </li>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
                 </ul>
               </nav>
             </header>
@@ -49,11 +55,14 @@ class App extends Component {
                 <Route path="/dashboard">
                   <UserList users={this.state.users} />
                 </Route>
-                <Route exact path="/user">
+                <PrivateRoute exact path="/user">
                   <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
+                </PrivateRoute>
+                <Route path="/login">
+                  <Login/>
                 </Route>
                 <Route path="/">
-                  <About/>
+                  <About />
                 </Route>
                 <Route>
                   <NotFound />
