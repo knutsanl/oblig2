@@ -1,56 +1,60 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import './App.css';
+import USERS from './users';
+
 import Home from './components/home/Home';
 import UserList from './components/user-list/user-list';
-
-//only for testing purposes
-const busyHome = {
-  name: 'JaneBuHo',
-  status: 'busy',
-  place: 'home-office'
-}
-
-const busyCampus = {
-  name: 'JaneBuCa',
-  status: 'busy',
-  place: 'on-campus'
-}
-
-const availableHome = {
-  name: 'JaneAvHo',
-  status: 'available',
-  place: 'home-office'
-}
-
-const availableCampus = {
-  name: 'JaneAvCa',
-  status: 'available',
-  place: 'on-campus'
-}
-
-const users = [busyHome, busyCampus, availableHome, availableCampus];
+import NotFound from './components/NotFound';
 
 class App extends Component {
   constructor(props) {
     super(props);
     // posible values "available/busy and on-campus/home-office"
     this.state = {
-      myUser: { ...users[0] },
-      users: users
+      myUser: { ...USERS[0] },
+      users: [...USERS]
     }
   }
 
   render() {
     return (
       <div className="App">
-        <div>
-          <p>This is the home component</p>
-          <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
-        </div>
-        <div>
-          <p>This is the UserList</p>
-          <UserList users={this.state.users} />
-        </div>
+        <Router>
+          <div className="App">
+            <header className="App-header">
+              <nav>
+                <ul>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+            <main>
+              <Switch>
+                <Route path="/dashboard">
+                  <UserList users={this.state.users} />
+                </Route>
+                <Route exact path="/">
+                  <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
+                </Route>
+                <Route>
+                  <NotFound />
+                </Route>
+              </Switch>
+            </main>
+          </div>
+        </Router>
       </div>
     );
   }
