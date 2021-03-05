@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <div className="App">
+          <div>
             <header className="App-header">
               <nav>
                 <ul>
@@ -42,13 +42,13 @@ class App extends Component {
             </header>
             <main>
               <Switch>
-                <Route path="/dashboard">
+                <Route exact path="/dashboard">
                   <UserList users={this.state.users} />
                 </Route>
                 <Route exact path="/">
                   <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
                 </Route>
-                <Route>
+                <Route path="*">
                   <NotFound />
                 </Route>
               </Switch>
