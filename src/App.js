@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import './App.css';
@@ -15,7 +14,10 @@ import NotFound from './components/NotFound';
 import About from './components/about/About';
 import PrivateRoute from './routes/PrivateRoute';
 import Login from './components/login/Login';
-
+import ForgotPassword from './components/forgot/forgot';
+import SignUp from './components/sign-up/sign-up';
+import Navigation from './components/nav-bar/nav';
+import { isLoggedIn } from './utils/isAuth';
 
 class App extends Component {
   constructor(props) {
@@ -33,22 +35,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <header className="App-header">
-              <nav>
-                <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/user">User home</Link>
-                  </li>
-                  <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li>
-                  <li>
-                    <Link to="/login">Login</Link>
-                  </li>
-                </ul>
-              </nav>
+              <Navigation handleLogOut={this.handleLogOut} isAuth={this.state.isAuth}/>
             </header>
             <main>
               <Switch>
@@ -59,7 +46,13 @@ class App extends Component {
                   <Home user={this.state.myUser} onChangePlace={this.updateUserPlace} onChangeStatus={this.updateUserStatus} />
                 </PrivateRoute>
                 <Route path="/login">
-                  <Login/>
+                  <Login handleLogIn={this.handleLogIn} redirect={this.state.redirect}/>
+                </Route>
+                <Route path="/forgot">
+                  <ForgotPassword/>
+                </Route>
+                <Route path="/signUp">
+                  <SignUp/>
                 </Route>
                 <Route path="/">
                   <About />
@@ -74,7 +67,20 @@ class App extends Component {
       </div>
     );
   }
+  handleLogIn = () => {
+    localStorage.setItem('userAuth', JSON.stringify(true));
+    this.setState({ redirect: "/user", isAuth: isLoggedIn() });
+    console.log("You're logged in");
+};
 
+handleLogOut = () => {
+    localStorage.removeItem('userAuth');
+    this.setState({ isAuth: isLoggedIn(), redirect: null });
+};
+componentDidMount(){
+  const isAuth = isLoggedIn();
+  this.setState({isAuth});
+}
   updateUserPlace = (onCampus) => {
     const place = onCampus ? 'on-campus' : 'home-office';
     this.setState((state) => {
