@@ -18,4 +18,5 @@ input[type=submit]{
 form{
     border-style: solid;
     border-color: white;
+    border-radius: 25px;
 }
