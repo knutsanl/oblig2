@@ -1,9 +1,21 @@
+div{
+    display: block;
+    text-align: center;
+}
 input{
     display: flex;
     flex-direction: column;
+    border-radius: 25px;
     width: 100%;
 }
-label{
-    display: flex;
-    flex-direction: column;
+input[type=submit]{
+    width: 30%;
+    align-items: center;
+    margin: 5%;
+    border-radius: 25px;
+    border-color: var(--color-bg-tertiary);
+}
+form{
+    border-style: solid;
+    border-color: white;
 }
